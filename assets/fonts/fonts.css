@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'BwBetoGrande Regular';
+    src: url('bwbetogrande-regular.eot');
+    src: url('bwbetogrande-regular.eot') format('embedded-opentype'),
+    url('bwbetogrande-regular.woff') format('woff2'),
+    url('bwbetogrande-regular.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: auto
+}
+
+@font-face{
+    font-family:"geomanistregular_n2";
+    src: url('geomanist-light-webfont.eot'); format('eot')
+}
+@font-face {
+    font-family: 'geomanistregular';
+    src: url('geomanist-light-webfont.eot');
+    src: url('geomanist-light-webfont.eot') format('embedded-opentype'),
+    url('geomanist-light-webfont.woff') format('woff2'),
+    url('geomanist-light-webfont.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face{
+    font-family:"geomanistregular_n2";
+    src: url('geomanist-regular-webfont.eot'); format('eot')
+}
+@font-face {
+    font-family: 'geomanistregular';
+    src: url('geomanist-regular-webfont.eot');
+    src: url('geomanist-regular-webfont.eot') format('embedded-opentype'),
+    url('geomanist-regular-webfont.woff') format('woff2'),
+    url('geomanist-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Againts refresh Regular";
+    src: url("a284d848f02dcea64d321ebe739d67e9.eot"); /* IE9*/
+    src: url("a284d848f02dcea64d321ebe739d67e9.eot") format("embedded-opentype"), /* IE6-IE8 */
+    url("a284d848f02dcea64d321ebe739d67e9.woff") format("woff2"), /* chrome、firefox */
+    url("a284d848f02dcea64d321ebe739d67e9.woff") format("woff"), /* chrome、firefox */
+    url("a284d848f02dcea64d321ebe739d67e9.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("a284d848f02dcea64d321ebe739d67e9.svg") format("svg"); /* iOS 4.1- */
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
