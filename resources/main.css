@@ -2945,7 +2945,7 @@ main {
 
 @font-face {
     font-family: icomoon;
-    src: url(../../assets/fonts/icomoon.ttf) format("truetype"), url(../../assets/fonts/icomoon.woff) format("woff"), url(../../assets/fonts/icomoon.svg) format("svg");
+    src: url(../assets/fonts/icomoon.ttf) format("truetype"), url(../assets/fonts/icomoon.woff) format("woff"), url(../assets/fonts/icomoon.svg) format("svg");
     font-weight: 400;
     font-style: normal;
     font-display: block
@@ -8032,7 +8032,7 @@ button>* {
     }
 }
 
-#Sidemenu {
+#sidemenu {
     --size-logo: 18.75vw;
     --size-main: 68.75vw;
     --size-aux: 12.5vw;
@@ -8047,27 +8047,27 @@ button>* {
     opacity: 0
 }
 
-#Sidemenu.__hide {
+#sidemenu.__hide {
     visibility: hidden;
     -webkit-transform: translate3d(200%, 0, 60px);
     transform: translate3d(200%, 0, 60px)
 }
 
-#Sidemenu[aria-expanded=false] {
+#sidemenu[aria-expanded=false] {
     pointer-events: none
 }
 
-.palette-primary #Sidemenu,
-.palette-secondary #Sidemenu,
-.palette-white #Sidemenu {
+.palette-primary #sidemenu,
+.palette-secondary #sidemenu,
+.palette-white #sidemenu {
     background-color: var(--primary)
 }
 
-.palette-black #Sidemenu {
+.palette-black #sidemenu {
     background-color: var(--black)
 }
 
-.sidemenu__bg {
+.sidemenu-bg {
     position: absolute;
     top: 0;
     height: 100%;
@@ -8075,27 +8075,27 @@ button>* {
     left: 0
 }
 
-.palette-primary .sidemenu__bg,
-.palette-secondary .sidemenu__bg,
-.palette-white .sidemenu__bg {
+.palette-primary .sidemenu-bg,
+.palette-secondary .sidemenu-bg,
+.palette-white .sidemenu-bg {
     background-color: var(--black)
 }
 
-.palette-black .sidemenu__bg {
+.palette-black .sidemenu-bg {
     background-color: var(--primary)
 }
 
-.sidemenu__holder {
+.sidemenu-holder {
     height: 100%;
     display: grid;
     grid-template-columns: var(--size-logo) var(--size-main) var(--size-aux)
 }
 
-.sidemenu__logo {
+.sidemenu-logo {
     position: relative
 }
 
-.sidemenu__logo>.holder {
+.sidemenu-logo>.holder {
     position: absolute;
     width: 100vh;
     height: var(--size-logo);
@@ -8113,19 +8113,19 @@ button>* {
     align-items: center
 }
 
-.sidemenu__logo>.holder svg {
+.sidemenu-logo>.holder svg {
     width: auto;
     height: 100%;
     max-height: 20%
 }
 
-.palette-primary .sidemenu__logo>.holder svg,
-.palette-secondary .sidemenu__logo>.holder svg,
-.palette-white .sidemenu__logo>.holder svg {
+.palette-primary .sidemenu-logo>.holder svg,
+.palette-secondary .sidemenu-logo>.holder svg,
+.palette-white .sidemenu-logo>.holder svg {
     fill: var(--primary)
 }
 
-.palette-black .sidemenu__logo>.holder svg {
+.palette-black .sidemenu-logo>.holder svg {
     fill: var(--black)
 }
 
@@ -8464,8 +8464,8 @@ button>* {
 
 @media (max-width:480px) {
 
-    .sidemenu__bg,
-    .sidemenu__logo {
+    .sidemenu-bg,
+    .sidemenu-logo {
         display: none
     }
 
@@ -8479,7 +8479,7 @@ button>* {
         font-size: 64px
     }
 
-    .sidemenu__holder {
+    .sidemenu-holder {
         height: 100%;
         display: -webkit-box;
         display: flex;

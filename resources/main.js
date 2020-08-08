@@ -3447,14 +3447,14 @@ function _defineProperty(e, t, o) {
     }) : e[t] = o, e
 }
 _defineProperty(Footer, "_firstTime", !0), _defineProperty(Footer, "ON_SHOW", "FOOTER_SHOW"), _defineProperty(Footer, "ON_HIDE", "FOOTER_HIDE");
-var Sidemenu = function(e) {
+var sidemenu = function(e) {
     function i() {
         return _classCallCheck(this, i), _possibleConstructorReturn(this, _getPrototypeOf(i).apply(this, arguments))
     }
     return _inherits(i, e), _createClass(i, null, [{
         key: "init",
         value: function() {
-            _get(_getPrototypeOf(i), "init", this).call(this), this.container.style.opacity = 0, this._bg = C.GetBy.class("bg-logo", this.container)[0], this._logo = C.GetBy.class("sidemenu__logo", this.container)[0], this.itemsLink = C.GetBy.selector(".sidemenu__nav li a"), this.itemsAux = C.GetBy.selector(".sidemenu__aux li"), this.BG_WIDTH = this._bg.offsetWidth, this.HEIGHT_LINK = this.itemsLink[1].offsetHeight;
+            _get(_getPrototypeOf(i), "init", this).call(this), this.container.style.opacity = 0, this._bg = C.GetBy.class("bg-logo", this.container)[0], this._logo = C.GetBy.class("sidemenu-logo", this.container)[0], this.itemsLink = C.GetBy.selector(".sidemenu__nav li a"), this.itemsAux = C.GetBy.selector(".sidemenu__aux li"), this.BG_WIDTH = this._bg.offsetWidth, this.HEIGHT_LINK = this.itemsLink[1].offsetHeight;
             for (var e = 0, t = this.itemsLink.length; e < t; e++) gsap.set(this.itemsLink[e], {
                 y: -this.HEIGHT_LINK
             });
@@ -3612,7 +3612,7 @@ var Sidemenu = function(e) {
             _get(_getPrototypeOf(i), "resize", this).call(this)
         }
     }]), i
-}(_Sidemenu);
+}(_sidemenu);
 
 function _typeof(e) {
     return (_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
@@ -3692,7 +3692,7 @@ function _defineProperty(e, t, o) {
         writable: !0
     }) : e[t] = o, e
 }
-_defineProperty(Sidemenu, "_tl", new gsap.timeline), _defineProperty(Sidemenu, "_bg", void 0), _defineProperty(Sidemenu, "_logo", void 0), _defineProperty(Sidemenu, "itemsLink", []), _defineProperty(Sidemenu, "itemsAux", []), _defineProperty(Sidemenu, "BG_WIDTH", void 0), _defineProperty(Sidemenu, "HEIGHT_LINK", void 0);
+_defineProperty(sidemenu, "_tl", new gsap.timeline), _defineProperty(sidemenu, "_bg", void 0), _defineProperty(sidemenu, "_logo", void 0), _defineProperty(sidemenu, "itemsLink", []), _defineProperty(sidemenu, "itemsAux", []), _defineProperty(sidemenu, "BG_WIDTH", void 0), _defineProperty(sidemenu, "HEIGHT_LINK", void 0);
 var Preloader = function(e) {
     function t() {
         return _classCallCheck(this, t), _possibleConstructorReturn(this, _getPrototypeOf(t).apply(this, arguments))
@@ -4035,9 +4035,9 @@ var Default = function(e) {
         key: "hide__effect",
         value: function(e) {
             var t = this;
-            Sidemenu.isOpen ? (Sidemenu.isPageChange = !0, Sidemenu.hide(), EventDispatcher.addEventListener(Sidemenu.ON_HIDE_END, function() {
-                EventDispatcher.removeEventListener(Sidemenu.ON_HIDE_END, "PageHideSidemenu"), t.afterHide()
-            }, "PageHideSidemenu")) : e ? (Wrap.directHide(), this.afterHide()) : Wrap.hide(function() {
+            sidemenu.isOpen ? (sidemenu.isPageChange = !0, sidemenu.hide(), EventDispatcher.addEventListener(sidemenu.ON_HIDE_END, function() {
+                EventDispatcher.removeEventListener(sidemenu.ON_HIDE_END, "PageHidesidemenu"), t.afterHide()
+            }, "PageHidesidemenu")) : e ? (Wrap.directHide(), this.afterHide()) : Wrap.hide(function() {
                 t.afterHide()
             })
         }
@@ -6969,11 +6969,11 @@ var Message = function(e) {
             Keyboard.init(), CSS.init(), C.Ease.init(), Interaction.init({
                 ajax: !0,
                 drag: !1
-            }), Basics.isTouch ? (Interaction.positions.mouse.x = Metrics.WIDTH - 40, Interaction.positions.mouse.y = Metrics.HEIGHT - 40) : (Interaction.positions.mouse.x = Metrics.WIDTH - 100, Interaction.positions.mouse.y = Metrics.HEIGHT - 100), EventDispatcher.addEventListener(Sidemenu.ON_SHOW, function() {
+            }), Basics.isTouch ? (Interaction.positions.mouse.x = Metrics.WIDTH - 40, Interaction.positions.mouse.y = Metrics.HEIGHT - 40) : (Interaction.positions.mouse.x = Metrics.WIDTH - 100, Interaction.positions.mouse.y = Metrics.HEIGHT - 100), EventDispatcher.addEventListener(sidemenu.ON_SHOW, function() {
                 Scroll.setEnabled(!1)
-            }, this.id), EventDispatcher.addEventListener(Sidemenu.ON_HIDE, function() {
+            }, this.id), EventDispatcher.addEventListener(sidemenu.ON_HIDE, function() {
                 Scroll.setEnabled(!0)
-            }, this.id), Wrap.init(), Header.init(), Sidemenu.init(), Footer.init(), Cookies.init(), NavCategories__Photo.init(C.GetBy.class("__categories-photo")[0]), NavCategories__Film.init(C.GetBy.class("__categories-film")[0]), ControllerPage.getTypePage = Main.getTypePage, ControllerPage.init(Wrap.mainholder), Basics.isDebug ? gsap.ticker.add(function() {
+            }, this.id), Wrap.init(), Header.init(), sidemenu.init(), Footer.init(), Cookies.init(), NavCategories__Photo.init(C.GetBy.class("__categories-photo")[0]), NavCategories__Film.init(C.GetBy.class("__categories-film")[0]), ControllerPage.getTypePage = Main.getTypePage, ControllerPage.init(Wrap.mainholder), Basics.isDebug ? gsap.ticker.add(function() {
                 Main.loopDebug()
             }) : gsap.ticker.add(function() {
                 Main.loop()
@@ -6996,10 +6996,10 @@ var Message = function(e) {
             }
         },
         resize: function() {
-            Interface.resize(), Loading.resize(), Header.resize(), Sidemenu.resize(), ControllerWindow.resize(), ControllerPage.resize(), Scroll.resize(), Scroll.resize()
+            Interface.resize(), Loading.resize(), Header.resize(), sidemenu.resize(), ControllerWindow.resize(), ControllerPage.resize(), Scroll.resize(), Scroll.resize()
         },
         loop: function() {
-            Interface.loop(), Loading.loop(), Header.loop(), Sidemenu.loop(), ControllerPage.loop(), Scroll.isScrolling && Scroll.loop()
+            Interface.loop(), Loading.loop(), Header.loop(), sidemenu.loop(), ControllerPage.loop(), Scroll.isScrolling && Scroll.loop()
         },
         loopDebug: function() {
             Statics.begin(), this.loop(), Statics.end()

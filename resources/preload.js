@@ -298,7 +298,7 @@ var Interaction = {
                 if (i.isDragged) t.preventDefault();
                 else switch (t.target.tagName.toLowerCase()) {
                     case "a":
-                        if (t.target.getAttribute("data-gtm-event"), t.target.getAttribute("data-ga-event") && Analytics.sendEvent(t.target.getAttribute("data-ga-event")), t.target.getAttribute("data-temp-value") && (Basics.tempValue = t.target.getAttribute("data-temp-value")), null !== t.target.getAttribute("data-toggle-sidemenu") && Sidemenu.toogleState(), "#" === t.target.getAttribute("href").slice(0, 1)) t.preventDefault(), Scroll.gotoAnchor(t.target.getAttribute("href").substring(1));
+                        if (t.target.getAttribute("data-gtm-event"), t.target.getAttribute("data-ga-event") && Analytics.sendEvent(t.target.getAttribute("data-ga-event")), t.target.getAttribute("data-temp-value") && (Basics.tempValue = t.target.getAttribute("data-temp-value")), null !== t.target.getAttribute("data-toggle-sidemenu") && sidemenu.toogleState(), "#" === t.target.getAttribute("href").slice(0, 1)) t.preventDefault(), Scroll.gotoAnchor(t.target.getAttribute("href").substring(1));
                         else if (i.options.ajax && t.target.getAttribute("data-link-project")) Basics.idProject = t.target.getAttribute("data-link-project"), t.preventDefault(), ControllerPage.changePage(t.target.getAttribute("href"));
                         else if (i.options.ajax && "_blank" !== t.target.getAttribute("target") && t.target.getAttribute("href").indexOf("mailto") < 0 && t.target.getAttribute("href").indexOf("tel") < 0 && null == t.target.getAttribute("data-internal")) {
                             t.preventDefault(), 0 < C.GetBy.class("__link-active").length && C.GetBy.class("__link-active")[0].classList.remove("__link-active"), t.target.classList.add("__link-active");
@@ -307,7 +307,7 @@ var Interaction = {
                         }
                         break;
                     case "button":
-                        t.target.getAttribute("data-gtm-event"), t.target.getAttribute("data-ga-event") && Analytics.sendEvent(t.target.getAttribute("data-ga-event")), null !== t.target.getAttribute("data-toggle-sidemenu") ? (t.preventDefault(), Sidemenu.toogleState()) : null !== t.target.getAttribute("data-toggle-window") ? ControllerWindow.toggle(t.target.getAttribute("data-toggle-window"), t.target) : null !== t.target.getAttribute("data-cookies-ok") ? (t.preventDefault(), Cookies.actionButtonOK(t.target)) : null !== t.target.getAttribute("data-cookies-nok") ? (t.preventDefault(), Cookies.actionButtonNOK(t.target)) : null !== t.target.getAttribute("data-back") && (t.preventDefault(), ControllerPage.back(t.target.getAttribute("data-href")))
+                        t.target.getAttribute("data-gtm-event"), t.target.getAttribute("data-ga-event") && Analytics.sendEvent(t.target.getAttribute("data-ga-event")), null !== t.target.getAttribute("data-toggle-sidemenu") ? (t.preventDefault(), sidemenu.toogleState()) : null !== t.target.getAttribute("data-toggle-window") ? ControllerWindow.toggle(t.target.getAttribute("data-toggle-window"), t.target) : null !== t.target.getAttribute("data-cookies-ok") ? (t.preventDefault(), Cookies.actionButtonOK(t.target)) : null !== t.target.getAttribute("data-cookies-nok") ? (t.preventDefault(), Cookies.actionButtonNOK(t.target)) : null !== t.target.getAttribute("data-back") && (t.preventDefault(), ControllerPage.back(t.target.getAttribute("data-href")))
                 }
             })
         }
@@ -3649,7 +3649,7 @@ function _defineProperty(t, e, i) {
     }) : t[e] = i, t
 }
 _defineProperty(_Footer, "container", C.GetBy.id("Footer")), _defineProperty(_Footer, "y", 0), _defineProperty(_Footer, "yOffset", 100), _defineProperty(_Footer, "height", void 0), _defineProperty(_Footer, "isShow", !0);
-var _Sidemenu = function() {
+var _sidemenu = function() {
     function i() {
         _classCallCheck(this, i)
     }
@@ -3717,9 +3717,9 @@ var _Sidemenu = function() {
         },
         set: function(t) {
             var e = this;
-            this._state !== t && (this._state = t, this.updateToggleButtons(), this.isOpen ? (Keyboard.add("Escape", "SidemenuESC", function() {
+            this._state !== t && (this._state = t, this.updateToggleButtons(), this.isOpen ? (Keyboard.add("Escape", "sidemenuESC", function() {
                 e.hide()
-            }), Accessibility.trap(this.container), EventDispatcher.dispatchEvent(i.ON_SHOW)) : (Keyboard.remove("Escape", "SidemenuESC"), Accessibility.removeTrap(), EventDispatcher.dispatchEvent(i.ON_HIDE)))
+            }), Accessibility.trap(this.container), EventDispatcher.dispatchEvent(i.ON_SHOW)) : (Keyboard.remove("Escape", "sidemenuESC"), Accessibility.removeTrap(), EventDispatcher.dispatchEvent(i.ON_HIDE)))
         }
     }]), i
 }();
@@ -3747,7 +3747,7 @@ function _defineProperty(t, e, i) {
         writable: !0
     }) : t[e] = i, t
 }
-_defineProperty(_Sidemenu, "ON_SHOW", "onshow"), _defineProperty(_Sidemenu, "ON_SHOW_END", "onshowend"), _defineProperty(_Sidemenu, "ON_HIDE", "onhide"), _defineProperty(_Sidemenu, "ON_HIDE_END", "onhideend"), _defineProperty(_Sidemenu, "STATE_OPEN", "OPEN"), _defineProperty(_Sidemenu, "STATE_CLOSE", "CLOSE"), _defineProperty(_Sidemenu, "isPageChange", !1), _defineProperty(_Sidemenu, "container", C.GetBy.id("Sidemenu")), _defineProperty(_Sidemenu, "_state", "CLOSE");
+_defineProperty(_sidemenu, "ON_SHOW", "onshow"), _defineProperty(_sidemenu, "ON_SHOW_END", "onshowend"), _defineProperty(_sidemenu, "ON_HIDE", "onhide"), _defineProperty(_sidemenu, "ON_HIDE_END", "onhideend"), _defineProperty(_sidemenu, "STATE_OPEN", "OPEN"), _defineProperty(_sidemenu, "STATE_CLOSE", "CLOSE"), _defineProperty(_sidemenu, "isPageChange", !1), _defineProperty(_sidemenu, "container", C.GetBy.id("sidemenu")), _defineProperty(_sidemenu, "_state", "CLOSE");
 var _Preloader = function() {
     function t() {
         _classCallCheck(this, t)
@@ -4078,7 +4078,7 @@ var Win = function() {
     }, {
         key: "show",
         value: function(t) {
-            this.container.setAttribute("aria-expanded", "true"), this._state = _Sidemenu.STATE_OPEN, this.show__effect()
+            this.container.setAttribute("aria-expanded", "true"), this._state = _sidemenu.STATE_OPEN, this.show__effect()
         }
     }, {
         key: "show__effect",
@@ -4102,12 +4102,12 @@ var Win = function() {
     }, {
         key: "afterHide",
         value: function() {
-            this._state = _Sidemenu.STATE_CLOSE, Accessibility.removeTrap(), Keyboard.remove("Escape", this.id + "_ESC"), this.container.setAttribute("aria-expanded", "false")
+            this._state = _sidemenu.STATE_CLOSE, Accessibility.removeTrap(), Keyboard.remove("Escape", this.id + "_ESC"), this.container.setAttribute("aria-expanded", "false")
         }
     }, {
         key: "directHide",
         value: function() {
-            this._state = _Sidemenu.STATE_CLOSE, this.afterHide()
+            this._state = _sidemenu.STATE_CLOSE, this.afterHide()
         }
     }, {
         key: "loop",
